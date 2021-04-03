@@ -4,10 +4,15 @@
 echo "test"
 response=-1
 fcount=0
+
+finction userinput{
+  read response
+}
+
 while [[ $response -ne $fcount ]]
 do
   echo "How many files are in the current directory? "
-  read response
+  userinput
   fcount=$(ls -l | grep "^-" | wc -l)
   if [[ $response -gt $fcount ]]
   then
